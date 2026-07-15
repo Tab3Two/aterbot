@@ -29,12 +29,15 @@ const createBot = (): void => {
 
 
 	bot.once('error', error => {
-		console.error(`AFKBot got an error: ${error}`);
+		console.error(`[ERROR] AFKBot error: ${error?.message ?? error}`);
 	});
 	bot.once('kicked', rawResponse => {
-		console.error(`\n\nAFKbot is disconnected: ${rawResponse}`);
+		console.error(`[KICKED] AFKBot bị kick: ${rawResponse}`);
 	});
-	bot.once('end', () => void reconnect());
+	bot.once('end', (reason) => {
+		console.log(`[END] Kết nối kết thúc, lý do: ${reason ?? 'không rõ'}`);
+		void reconnect();
+	});
 
 	bot.once('spawn', () => {
 		const changePos = async (): Promise<void> => {
