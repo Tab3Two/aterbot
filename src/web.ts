@@ -1,6 +1,6 @@
 import HTTP from 'node:http';
 
-const PORT = process.PORT || 5500;
+const PORT = process.PORT || 5000;
 const server = HTTP.createServer((request, response) => {
 	response.writeHead(200, {
 		"Access-Control-Allow-Origin": "https://replit.com",
