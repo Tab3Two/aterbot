@@ -18,3 +18,10 @@ run = "pnpm run start"
 		packageSearch = true
 		guessImports = true
 		enabledForHosting = true
+
+[[ports]]
+localPort = 5500
+externalPort = 80
+
+[agent]
+expertMode = true
